@@ -9,8 +9,8 @@
 import os
 
 # 楼幢列表
-floor_list1 = ['7幢', '8幢', '9幢', '10幢', '11幢', '12幢']
-floor_list2= ['13幢', '14幢']
+building_list1 = ['7幢', '8幢', '9幢', '10幢', '11幢', '12幢']
+building_list2= ['13幢', '14幢']
 # 单元列表
 unit_code = ['1单元', '2单元']
 
@@ -22,11 +22,12 @@ with open('optnode7.txt') as opt7:
 with open('optnode13.txt') as opt13:
     operation_node13 = opt13.readlines()
 
-def RoomNumOptAlbum(floor_list, unitcode, range_s, range_e, operation_node):
-    for fl in floor_list:
+#  定义房屋节点相册生成函数
+def RoomNumOptAlbum(building_list, unitcode, floor_s, floor_e, operation_node):
+    for bld in building_list:
         for uc in unitcode:
-            for floor in range(range_s,range_e):    # 设置楼层起止数
-                roomnum = []
+            for floor in range(floor_s,floor_e):    # 设置楼层起止数
+                room_num = []
                 if uc == "1单元":    # 设置单元房号序列起止数
                     range_start = 1
                     range_end = 3
@@ -36,14 +37,13 @@ def RoomNumOptAlbum(floor_list, unitcode, range_s, range_e, operation_node):
                 for n in range(range_start,range_end):
                     rnum = str(floor)+str(0)+str(n)    # 拼接房号
                     rnum.strip()
-                    roomnum.append(rnum)    # 保存单元单层房号
-                for ronum in roomnum:
+                    room_num.append(rnum)    # 保存单元单层房号
+                for ronum in room_num:
                     for opn in operation_node:    # 遍历该楼栋工序节点
-                        os.makedirs(r"{0}/{1}/{2}/{3}".format(fl, uc,ronum, opn))    # 生成楼幢房号及节点相册目录
+                        os.makedirs(r"{0}/{1}/{2}/{3}".format(bld, uc,ronum, opn))    # 生成楼幢房号及节点相册目录
 
 # 生成7-12号楼每户节点相册
-RoomNumOptAlbum(floor_list1, unit_code, 2, 31, operation_node7)
-
+RoomNumOptAlbum(building_list1, unit_code, 2, 31, operation_node7)
 
 # 生成13、14号楼每户节点相册
-RoomNumOptAlbum(floor_list2, unit_code, 1, 23, operation_node13)
+RoomNumOptAlbum(building_list2, unit_code, 1, 23, operation_node13)

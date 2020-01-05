@@ -19,14 +19,14 @@ operation_node13 = []
 
 # 读取7、8、9、10、11、12号楼工序节点
 with open('optnode7.txt') as opt7:
-    for ln in opt7.readlines():
-        ln = ln.strip('\n')
+    for line in opt7.readlines():
+        line = line.strip('\n')
         operation_node7.append(ln)
 
 # 读取13、14号楼工序节点
 with open('optnode13.txt') as opt13:
-    for ln in opt13.readlines():
-        ln = ln.strip('\n')
+    for line in opt13.readlines():
+        line = line.strip('\n')
         operation_node13.append(ln)
 
 #  定义房屋节点相册生成函数

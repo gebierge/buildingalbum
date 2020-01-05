@@ -13,14 +13,21 @@ building_list1 = ['7幢', '8幢', '9幢', '10幢', '11幢', '12幢']
 building_list2= ['13幢', '14幢']
 # 单元列表
 unit_code = ['1单元', '2单元']
+# 定义节点容器
+operation_node7 = []
+operation_node13 = []
 
 # 读取7、8、9、10、11、12号楼工序节点
 with open('optnode7.txt') as opt7:
-    operation_node7 = opt7.readlines()
+    for ln in opt7.readlines():
+        ln = ln.strip('\n')
+        operation_node7.append(ln)
 
 # 读取13、14号楼工序节点
 with open('optnode13.txt') as opt13:
-    operation_node13 = opt13.readlines()
+    for ln in opt13.readlines():
+        ln = ln.strip('\n')
+        operation_node13.append(ln)
 
 #  定义房屋节点相册生成函数
 def RoomNumOptAlbum(building_list, unitcode, floor_s, floor_e, operation_node):

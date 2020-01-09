@@ -21,13 +21,13 @@ operation_node13 = []
 with open('optnode7.txt') as opt7:
     for line in opt7.readlines():
         line = line.strip('\n')
-        operation_node7.append(ln)
+        operation_node7.append(line)
 
 # 读取13、14号楼工序节点
 with open('optnode13.txt') as opt13:
     for line in opt13.readlines():
         line = line.strip('\n')
-        operation_node13.append(ln)
+        operation_node13.append(line)
 
 #  定义房屋节点相册生成函数
 def RoomNumOptAlbum(building_list, unitcode, floor_s, floor_e, operation_node):
